@@ -1,7 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="MauiApp2.MainPage">
+             x:Class="MauiApp2.MainPage"
+             xmlns:viewmodel="clr-namespace:MauiApp2.ViewModels"
+             x:DataType="viewmodel:MainViewModel">
 
     <Grid RowDefinitions="30,100,*" BackgroundColor="White">
 
@@ -12,6 +14,7 @@
             </Grid>
         </Frame>
 
+        <Label Text="This should be where the mvvm comes in for testing purposes, but I don't know what I'm doing, and so I gave up."></Label>
 
         <Frame Grid.Row="2" 
                Margin="20" 
@@ -23,8 +26,19 @@
                     <DataTemplate>
                         <Grid Padding="10">
                             <Frame BackgroundColor="White" BorderColor="Green">
+                                
+                                <!-- Eventually, this is how the clicking the user's box would lead you to their page.
+                                     But like, it doesn't work -->
+                                
+                                <!--<Frame.GestureRecognizers>
+                                    <TapGestureRecognizer
+                                        Command="{Binding Source={RelativeSource AncestorType={x:Type ViewModels:MainViewModel}}, Path=SomethingCommand}"
+                                        CommandParameter="{Binding .}"
+                                        >
+                                    </TapGestureRecognizer>
+                                </Frame.GestureRecognizers>-->
                                 <Grid RowDefinitions="25,*" ColumnDefinitions=".1*, *" BackgroundColor="White">
-                                    <Image Grid.Row="0" Grid.Column="0" Source="person.png"></Image>
+                                    <Image x:Name="gridThingy" Grid.Row="0" Grid.Column="0" Source="person.png"></Image>
                                     <Label Padding="10" Text="{Binding .}" Grid.Row="1" Grid.Column="1"></Label>
                                 </Grid>
                             </Frame>
