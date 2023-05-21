@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiApp2.MainPage">
+
+    <Grid RowDefinitions="30,100,*" BackgroundColor="White">
+
+        <Frame Padding="10" Margin="20" WidthRequest="300" HorizontalOptions="Center" Grid.Row="1" BackgroundColor="WhiteSmoke" BorderColor="#EA4372">
+            <Grid Grid.Row="1" ColumnDefinitions=".8*, .2*">
+                <Entry Grid.Row="1" Placeholder="Enter name..." x:Name="search"></Entry>
+                <Button Grid.Row="1" Grid.Column="1" Text="Go!" BackgroundColor="Green" x:Name="go"></Button>
+            </Grid>
+        </Frame>
+
+
+        <Frame Grid.Row="2" 
+               Margin="20" 
+               BackgroundColor="WhiteSmoke"
+               VerticalOptions="StartAndExpand"
+               BorderColor="#EA4372">
+            <CollectionView x:Name="candidates">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Padding="10">
+                            <Frame BackgroundColor="White" BorderColor="Green">
+                                <Grid RowDefinitions="25,*" ColumnDefinitions=".1*, *" BackgroundColor="White">
+                                    <Image Grid.Row="0" Grid.Column="0" Source="person.png"></Image>
+                                    <Label Padding="10" Text="{Binding .}" Grid.Row="1" Grid.Column="1"></Label>
+                                </Grid>
+                            </Frame>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+
+            </CollectionView>
+        </Frame>
+        
+    </Grid>
+
+</ContentPage>
